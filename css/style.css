@@ -1,0 +1,114 @@
+.container{
+	width: 1200px;
+	margin: 0 auto;
+	padding: 1em 0;
+}
+.left{
+	width: 20%;
+}
+.left ul li{
+	padding:1em 2em;
+	background: #ff981c;
+	color: #fff;
+	font-size: 0.9em;
+	cursor: pointer;
+	border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.left ul li:hover{
+	background: #f98a27;
+}
+.left ul li.active{
+	background: #f98a27;
+}
+
+
+
+.right .title{
+	padding: 0.75em 1em;
+	background: #fafafa;
+	margin-bottom: 1em;
+	font-size: 0.95em;
+}
+.right{
+	width: 79%;
+	min-height:20em ;
+}
+.r_item ul li{
+	padding: 1em;
+	border: 1px solid #eee;
+	margin-bottom: 1em;
+}
+.r_item ul li:hover{
+	border: 1px solid #d2d2d2;
+}
+.r_item ul li .pic{
+	width: 10em;
+	height: 7em;
+}
+.r_item ul li .text {
+	padding: 0 1em;
+	width: 25em;
+}
+.r_item ul li p{
+	font-size: 0.85em;
+	color: #9e9e9e;
+}
+.r_item ul li .text h3{
+	color: #3c3c3c;
+	font-weight: 500;
+	font-size: 1em;
+	margin-bottom: 0.5em;
+}
+.r_item ul li .text span{
+	color: #fff;
+	background: #F98A27;
+	font-size: 0.8em;
+	padding: 0.2em 1em;
+	margin: 0.25em 0;
+	display: inline-block;
+}
+.r_item ul li .price{
+	padding: 0 1em;
+	font-weight: bold;
+	color: #000;
+}
+.r_item ul li .info p{
+	line-height: 1.5;
+	padding: 0 1em;
+}
+
+
+.r_item ul li button{
+	background: #fff;
+	padding: 0.5em 1.5em;
+	border: 1px solid #eee;
+}
+.r_item ul li button:hover{
+	background: #fafafa;
+	cursor: pointer;
+}
+
+.order ul li .text span{
+	background: #f00;
+}
+.yixiang ul li .text span{
+	background: #01a515;
+}
+
+
+
+.r_item{
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+

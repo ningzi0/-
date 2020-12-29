@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title></title>
+		<link rel="stylesheet" id=cal_style type="text/css" href="css/flatpickr.min.css">
+		<link rel="stylesheet" type="text/css" href="css/public.css" />
+		<script async src="js/flatpickr.js" onload="fp_ready()"></script>
+		<script async>
+		function fp_ready(){
+		document.getElementById("flatpickr-tryme").flatpickr();
+		
+		// Fiscal calendar
+		fiscal.getWeek = function(givenDate){
+			var checkDate = new Date(givenDate.getTime());
+			checkDate.setDate(checkDate.getDate() + 4 - (checkDate.getDay() || 7));
+			var time = checkDate.getTime();
+			checkDate.setMonth(7);
+			checkDate.setDate(28);
+			var week = (Math.floor(Math.round((time - checkDate) / 86400000) / 7) + 2);
+			if (week < 1) {
+				week = 52 + week;
+			}
+			return 'FW' + ("0" + week).slice(-2);
+		}
+		
+		fiscal.redraw();
+		
+		}
+		</script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.yuyue{
+				background: #F98A27;
+				border: 1px solid #F98A27;
+				padding: 1em 5em;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				cursor: pointer;
+				color: #fff;
+			}
+			.yuyue:hover{
+				background: #eee;
+				border: 1px solid #eee;
+				color: #333;
+			}
+			
+			.yuyueWrap{
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				background: rgba(0,0,0,0.5);
+				z-index: 9;
+				display: none;
+			}
+			.yuyueCon{
+				background: #fff;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				
+			}
+			.yuyue_title{
+				text-align: center;
+				padding: 1em 0;
+				background: #eee;
+			}
+			.yuyueCon ul{
+				padding: 1em;
+			}
+			.yuyueCon ul li{
+				list-style: none;
+				padding: 0.5em 1em;
+			}
+			.yuyueCon ul li span{
+				display: inline-block;
+				text-align: right;
+				padding: 0 1em;
+				vertical-align: middle;
+				min-width: 5em;
+			}
+			.yuyueCon ul li span font{
+				color: #f00;
+			}
+			.yuyueCon ul li input,.yuyueCon ul li textarea{
+				width: 20em;
+				border: 1px solid #eee;
+				padding: 0.75em;
+				vertical-align: middle;
+				display: inline-block;
+				font-size: 0.9em;
+				font-family: '微软雅黑';
+			}
+			.yuyueCon ul li textarea{
+				height: 10em;
+			}
+			.btn{
+				text-align: center;
+				margin-bottom: 1.5em;
+			}
+			.btn input{
+				font-size: 0.95em;
+				background: #eee;
+				border: 0;
+				padding: 0.5em 2em;
+			}
+			.btn input[type="submit"]{
+				background: #F5871F;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<button class="yuyue" type="button">预约</button>
+		
+		<div class="yuyueWrap">
+			<div class="yuyueCon">
+				<div class="yuyue_title">预约</div>
+				<div class="yuyueInput">
+					<ul>
+						<li>
+							<span>姓名<font>*</font></span>
+							<input type="text" name="" id="" placeholder="请输入姓名" />
+						</li>
+						<li>
+							<span>电话<font>*</font></span>
+							<input type="number" name="" id="" placeholder="请输入联系方式" />
+						</li>
+						<li>
+							<span>时间<font>*</font></span>
+							<input id="flatpickr-tryme" placeholder="请选择预约时间">
+						</li>
+						<li>
+							<span>备注</span>
+							<textarea rows="" cols=""></textarea>
+						</li>
+					</ul>
+					<div class="btn">
+						<input type="submit" name="" id="" value="确定" />
+						<input type="button" name="" id="" value="取消" />
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+<script type="text/javascript" src="js/jquery-1.8.3-jquery.min.js"></script>
+<script type="text/javascript">
+	$('.yuyue').click(function(){
+		$('.yuyueWrap').fadeIn();
+	})
+	$('.btn input[type="button"],.btn input[type="submit"]').click(function(){
+		$('.yuyueWrap').hide();
+	})
+</script>
+	</body>
+</html>
